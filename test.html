@@ -1,0 +1,42 @@
+<html>
+<head>SockJS Interface Test</head>
+
+<script type="text/javascript" src="js/jquery-1.8.2.min.js"></script>
+<script type="text/javascript" src="js/woopra.class.js"></script>
+<script type="text/javascript" src="js/sockjs.js"></script>
+<script type="text/javascript" src="js/sockjs.interface.js"></script>
+
+<script type="text/javascript">
+$(function() {
+	initialize();
+});
+
+function initialize() {
+	var url = "http://localhost:8080/sock";
+	
+	var socket = new SockJSSocket(url, {
+    	debug: true
+    });
+        
+    socket.on('connecting', function() {
+        // socket is connecting
+    });
+    socket.on('connect', function(){
+        // socket connected... send your initial message...
+        // socket.send({ your object });
+    });
+    socket.on('disconnect', function() {
+        // socket disconnected... it will automatically reconnect
+    });
+    socket.on('message', function(data) {
+        // handle message
+    });
+    
+    socket.connect();
+}
+</script>
+
+<body>
+See debug messages in console...
+</body>
+</html>
