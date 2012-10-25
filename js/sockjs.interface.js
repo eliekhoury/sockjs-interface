@@ -1,4 +1,3 @@
-
 var SockJSSocket = Class.extend({
     init: function(endpoint, options){
         this.endpoint = endpoint;
@@ -12,7 +11,8 @@ var SockJSSocket = Class.extend({
         }, options);
         
         this.status = 'disconnected';
-    
+        
+        // this will hold all the listeners mapped as name:>array of listeners
         this.callbacks = {};
     },
     on: function(key, callback) {
